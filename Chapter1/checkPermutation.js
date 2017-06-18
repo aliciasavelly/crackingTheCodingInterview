@@ -1,4 +1,8 @@
 function checkPermutation(str1, str2) {
+  if (str1.length != str2.length) {
+    return false;
+  }
+
   let str1Hash = {};
 
   for (let i = 0; i < str1.length; i++) {
@@ -9,22 +13,18 @@ function checkPermutation(str1, str2) {
     }
   }
 
-  let valid = false;
   for (let j = 0; j < str2.length; j++) {
     if (str1Hash[str2[j]] == undefined || str1Hash[str2[j]] == 0) {
       return false;
-    } else if (str1Hash[str2[j]] > 1) {
-      valid = false;
-    } else if (str1Hash[str2[j]] == 1) {
-      valid = true;
     }
 
     str1Hash[str2[j]] -= 1;
   }
 
-  return valid;
+  return true;
 }
 
 console.log(checkPermutation("alicia", "aicila"));
-console.log(checkPermutation("abc", "def"));
 console.log(checkPermutation("coding", "doincg"));
+console.log(checkPermutation("abc", "def"));
+console.log(checkPermutation("asdlfjk", "as"));
