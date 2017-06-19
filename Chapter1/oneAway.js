@@ -14,17 +14,13 @@ function oneAway(str1, str2) {
     } else if (str1[i] != str2[j]) {
       edit = true;
       if (str1.length > str2.length) {
-        i++;
+        j--;
       } else if (str1.length < str2.length) {
-        j++;
-      } else {
-        i++;
-        j++;
+        i--;
       }
-    } else {
-      i++;
-      j++;
     }
+    i++;
+    j++;
   }
 
   return true;
