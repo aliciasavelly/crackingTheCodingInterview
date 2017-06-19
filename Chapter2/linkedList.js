@@ -27,9 +27,15 @@ class LinkedList {
     this.tail.prev.next = link;
     this.tail.prev = link;
   }
+
+  removeLink(link) {
+    link.remove();
+  }
 }
 
 let ll = new LinkedList();
 ll.append(1);
 ll.append(2);
 ll.append(3);
+
+module.exports = LinkedList;
