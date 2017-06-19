@@ -6,6 +6,17 @@ do this in place?
 
 */
 
-function rotateMatrix() {
+function rotateMatrix(matrix) {
+  let result = [];
 
+  for (let i = 0; i < matrix[0].length; i++) {
+    result.push([]);
+  }
+
+  return result;
 }
+
+console.log(rotateMatrix([["A", "B", "C", "D"],
+                          ["E", "F", "G", "H"],
+                          ["I", "J", "K", "L"],
+                          ["M", "N", "O", "P"]]));
