@@ -7,7 +7,25 @@ Palindrome: Implement a function to check if a linked list is a palindrome.
 */
 
 function palindrome(list) {
+  let arr = [];
+  let current = list.head;
 
+  while (current) {
+    arr.push(current.value);
+    current = current.next;
+  }
+
+  return isArrPalindrome(arr);
+}
+
+function isArrPalindrome(arr) {
+  for (let i = 0; i < arr.length / 2; i++) {
+    if (arr[i] != arr[arr.length - 1 - i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 let list1 = new SinglyLinkedList();
