@@ -1,3 +1,5 @@
+const SinglyLinkedList = require('./singlyLinkedList.js');
+
 /*
 
 Loop Detection: Given a circular linked list, implement an algorithm that
@@ -13,5 +15,5 @@ Output: C
 */
 
 function loopDetection(list) {
-  
+
 }

@@ -1,3 +1,5 @@
+const SinglyLinkedList = require('./singlyLinkedList.js');
+
 /*
 
 Intersection: Given two (singly) linked lists, determine if the two lists
@@ -9,5 +11,5 @@ then they are intersecting.
 */
 
 function intersection(list1, list2) {
-  
+
 }
