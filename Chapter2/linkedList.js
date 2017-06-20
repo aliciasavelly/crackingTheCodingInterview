@@ -9,15 +9,15 @@ class LinkedList {
   }
 
   first() {
-    this.head.next;
+    return this.head.next;
   }
 
   last() {
-    this.tail.prev;
+    return this.tail.prev;
   }
 
   empty() {
-    this.head.next == this.tail;
+    return this.head.next == this.tail;
   }
 
   append(value) {
@@ -26,6 +26,7 @@ class LinkedList {
     link.next = this.tail;
     this.tail.prev.next = link;
     this.tail.prev = link;
+    return link;
   }
 
   removeLink(link) {
