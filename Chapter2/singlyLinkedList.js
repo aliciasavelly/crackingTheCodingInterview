@@ -37,8 +37,21 @@ class SinglyLinkedList {
     return link;
   }
 
-  removeLink(link) {
-    link.remove();
+  searchForLinkAt(position) {
+    let currentLink = this.head;
+    let length = this.length;
+    let count = 1;
+
+    if (length === 0 || position < 1 || position > length) {
+      throw Error;
+    }
+
+    while (count < position) {
+      currentLink = currentLink.next;
+      count++;
+    }
+
+    return currentLink;
   }
 }
 

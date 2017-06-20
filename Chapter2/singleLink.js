@@ -3,10 +3,6 @@ class SingleLink {
     this.value = value;
     this.next = null;
   }
-
-  // remove() {
-  //   this.next = null;
-  // }
 }
 
 // let l = new SingleLink(3);
