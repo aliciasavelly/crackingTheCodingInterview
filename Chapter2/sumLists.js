@@ -11,25 +11,22 @@ For an extra challenge, solve this assuming that the digits are no longer
 stored in reverse order.
 */
 
+function reverseListString(list) {
+  let result = "";
+  let current = list.head;
+
+  while (current) {
+    result = String(current.value) + result;
+    current = current.next;
+  }
+
+  return result;
+}
+
 function sumLists(list1, list2) {
-  let num1 = "";
-  let num2 = "";
-  let current = list1.head;
-
-  while (current) {
-    num1 = String(current.value) + num1;
-    current = current.next;
-  }
-
-  current = list2.head;
-  while (current) {
-    num2 = String(current.value) + num2;
-    current = current.next;
-  }
-
-  num1 = Number(num1);
-  num2 = Number(num2);
-  let result = String(num1 + num2);
+  let num1 = reverseListString(list1);
+  let num2 = reverseListString(list2);
+  let result = String(Number(num1) + Number(num2));
 
   let resultList = new SinglyLinkedList();
   for (let i = result.length - 1; i >= 0; i--) {
