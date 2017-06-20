@@ -9,6 +9,7 @@ numbers and returns the sum as a linked list.
 
 For an extra challenge, solve this assuming that the digits are no longer
 stored in reverse order.
+
 */
 
 function reverseListString(list) {
