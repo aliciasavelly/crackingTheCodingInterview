@@ -27,8 +27,16 @@ function sumLists(list1, list2) {
     current = current.next;
   }
 
-  console.log(num1);
-  console.log(num2);
+  num1 = Number(num1);
+  num2 = Number(num2);
+  let result = String(num1 + num2);
+
+  let resultList = new SinglyLinkedList();
+  for (let i = result.length - 1; i >= 0; i--) {
+    resultList.append(result[i]);
+  }
+
+  return resultList;
 }
 
 let list1 = new SinglyLinkedList();
@@ -40,4 +48,4 @@ list2.append(5);
 list2.append(9);
 list2.append(2);
 
-console.log(sumLists(list1, list2));
+let res = sumLists(list1, list2);
