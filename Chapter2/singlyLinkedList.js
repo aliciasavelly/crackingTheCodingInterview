@@ -2,9 +2,7 @@ const SingleLink = require('./singleLink.js');
 
 class SinglyLinkedList {
   constructor() {
-    this.head = new SingleLink();
-    this.tail = new SingleLink();
-    this.head.next = this.tail;
+    this.head = null;
     this.length = 0;
   }
 
@@ -13,7 +11,7 @@ class SinglyLinkedList {
   }
 
   empty() {
-    return this.head.next == this.tail;
+    return this.length == 0;
   }
 
   append(value) {
