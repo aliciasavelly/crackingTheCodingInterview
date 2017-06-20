@@ -17,12 +17,11 @@ function removeDups(linkedList) {
 
   while (current.next) {
     if (valHash[current.value]) {
-      let toRemove = current;
       current = current.next;
-      console.log(toRemove);
-      toRemove.remove();
+      current.prev.remove();
     } else {
       valHash[current.value] = true;
+      current = current.next;
     }
   }
 
@@ -39,7 +38,6 @@ console.log(ll.head.next.next.next.next.next.next.next.value);
 console.log(ll.head.next.next.next.next.next.next.next.next.value);
 removeDups(ll);
 console.log("XXXXXXXXXX");
-ll.head.next.remove();
 console.log(ll.head.next.value);
 console.log(ll.head.next.next.value);
 console.log(ll.head.next.next.next.value);

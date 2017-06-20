@@ -18,11 +18,9 @@ class Link {
   }
 }
 
-let l = new Link(3);
-console.log(l);
-let l2 = new Link(2);
-l.next = l2;
-l.next.prev = l;
-console.log(l);
+// let l = new Link(3);
+// let l2 = new Link(2);
+// l.next = l2;
+// l.next.prev = l;
 
 module.exports = Link;
