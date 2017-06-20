@@ -67,3 +67,10 @@ list6.append(2);
 list6.append(2);
 list6.append(1);
 list6.append(1);
+
+console.log(palindrome(list1) == true);
+console.log(palindrome(list2) == true);
+console.log(palindrome(list3) == false);
+console.log(palindrome(list4) == true);
+console.log(palindrome(list5) == false);
+console.log(palindrome(list6) == false);
