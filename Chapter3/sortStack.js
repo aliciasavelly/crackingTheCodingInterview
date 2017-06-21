@@ -6,3 +6,9 @@ elements into any other data structures (such as an array). The stack supports
 the following operations: push, pop, peek, and isEmpty.
 
 */
+
+class SortStack {
+  constructor() {
+    
+  }
+}

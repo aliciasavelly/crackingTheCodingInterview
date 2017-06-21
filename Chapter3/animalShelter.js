@@ -10,3 +10,9 @@ enqueue, dequeueAny, dequeueDog, and dequeueCat. You may use the built-in
 LinkedList data structure.
 
 */
+
+class AnimalShelter {
+  constructor() {
+    
+  }
+}
