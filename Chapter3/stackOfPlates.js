@@ -9,7 +9,7 @@ class PlatesStack {
 
   pop() {
     let result = this.stack[this.lastPos].pop();
-    if (this.stack[this.lastPos].length == 0) {
+    if (this.stack[this.lastPos].length == 0 && this.lastPos > 0) {
       this.stack.pop();
       this.lastPos--;
     }
