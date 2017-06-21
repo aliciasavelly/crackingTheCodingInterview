@@ -16,12 +16,20 @@ Output: C
 */
 
 function loopDetection(list) {
+  let current = list.head;
+  // let count = 0;
 
+  while (!current.visited) {
+    current.visited = true;
+    current = current.next;
+  }
+
+  return current;
 }
 
 let ll1 = new SinglyLinkedList();
-let ll2 = new SinglyLinkedList();
-let ll3 = new SinglyLinkedList();
+// let ll2 = new SinglyLinkedList();
+// let ll3 = new SinglyLinkedList();
 
 let l1 = new SingleLink("C");
 let l2 = new SingleLink(2);
@@ -39,3 +47,5 @@ ll1.append("D");
 ll1.append("E");
 l1.next.next.next = l1;
 ll1.length++;
+
+console.log(loopDetection(ll1));
