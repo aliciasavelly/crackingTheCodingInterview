@@ -24,12 +24,14 @@ function intersection(list1, list2) {
     current = temp;
   }
 
-  let current = list2.head;
+  current = list2.head;
 
   while (current) {
     if (current.next == 0) {
       return true;
     }
+
+    current = current.next;
   }
 
   return false;
@@ -37,6 +39,7 @@ function intersection(list1, list2) {
 
 let ll1 = new SinglyLinkedList();
 let ll2 = new SinglyLinkedList();
+let ll3 = new SinglyLinkedList();
 
 let l1 = new SingleLink(1);
 let l2 = new SingleLink(2);
@@ -50,8 +53,16 @@ ll1.append(0);
 ll1.head.next = l1;
 l1.next = l2;
 l2.next = l3;
+// 0, l1, l2, l3
 
-ll2.append(0);
-ll2.head.next = l4;
+// ll2.append(0);
+// ll2.head.next = l4;
+// l4.next = l5;
+// l5.next = l2;
+// 0, l4, l5, l2
+
+ll3.append(0);
+ll3.head.next = l4;
 l4.next = l5;
-l5.next = l2;
+l5.next = l6;
+l6.next = l7;
