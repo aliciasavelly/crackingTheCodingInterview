@@ -15,7 +15,7 @@ class threeInOneStack {
   }
 
   popStack1() {
-    this.stack.splice(this.partition1, 1);
+    this.stack.splice(this.partition1 - 1, 1);
     this.partition1--;
     this.partition2--;
     this.partition3--;
@@ -29,7 +29,7 @@ class threeInOneStack {
   }
 
   popStack2() {
-    this.stack.splice(this.partition2, 1);
+    this.stack.splice(this.partition2 - 1, 1);
     this.partition2--;
     this.partition3--;
   }
@@ -41,7 +41,7 @@ class threeInOneStack {
   }
 
   popStack3() {
-    this.stack.splice(this.partition3, 1);
+    this.stack.splice(this.partition3 - 1, 1);
     this.partition3--;
   }
 }
