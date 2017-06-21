@@ -20,3 +20,5 @@ class Queue {
     return this.queue.length === 0;
   }
 }
+
+module.exports = Queue;
