@@ -1,6 +1,13 @@
 const Queue = require('./queue.js');
 const Stack = require('./stack.js')
 
+/*
+
+Queue via Stacks: Implement a MyQueue class which implements a queue using two
+stacks.
+
+*/
+
 class StackQueue {
   constructor() {
     this.queue1 = new Stack();
