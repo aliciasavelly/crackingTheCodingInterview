@@ -5,23 +5,23 @@ class StackQueue {
   constructor() {
     this.queue1 = new Stack();
     this.queue2 = new Stack();
-    this.last = ;
+    this.last = 1;
   }
 
   enqueue(value) {
     if (this.last != 1) {
-      reverseQueues();
+      this.reverseQueues();
     }
 
     this.queue1.push(value);
     this.last = 1;
 
-    return value
+    return value;
   }
 
   dequeue() {
     if (this.last != 2) {
-      reverseQueues();
+      this.reverseQueues();
     }
 
     this.last = 2;
@@ -41,13 +41,13 @@ class StackQueue {
   }
 
   reverseQueues() {
-    if (queue1.length === 0) {
-      while (queue2.length > 0) {
-        queue1.push(queue2.pop());
+    if (this.queue1.length === 0) {
+      while (this.queue2.length > 0) {
+        this.queue1.push(this.queue2.pop());
       }
     } else {
-      while (queue1.length > 0) {
-        queue2.push(queue1.pop());
+      while (this.queue1.length > 0) {
+        this.queue2.push(this.queue1.pop());
       }
     }
   }
