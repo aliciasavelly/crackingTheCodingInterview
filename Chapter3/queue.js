@@ -9,7 +9,7 @@ class Queue {
   }
 
   remove() {
-    return this.queue.unshift();
+    return this.queue.shift();
   }
 
   peek() {
