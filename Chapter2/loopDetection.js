@@ -17,7 +17,6 @@ Output: C
 
 function loopDetection(list) {
   let current = list.head;
-  // let count = 0;
 
   while (!current.visited) {
     current.visited = true;
