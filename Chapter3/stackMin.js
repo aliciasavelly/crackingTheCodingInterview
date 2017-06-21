@@ -1,7 +1,8 @@
-class Stack {
+class StackMin {
   constructor() {
     this.stack = [];
     this.length = 0;
+    this.min = 0;
   }
 
   pop() {
@@ -12,11 +13,14 @@ class Stack {
   push(value) {
     this.stack.push(value);
     this.length++;
+    if (value < this.min) {
+      this.min = value;
+    }
     return value;
   }
 
   peek() {
-    return this.stack[this.stack.length - 1];
+    return this.stack[this.length - 1];
   }
 
   isEmpty() {

@@ -1,4 +1,4 @@
-class threeInOneStack {
+class ThreeInOneStack {
   constructor() {
     this.stack = [];
     this.partition1 = 0;
