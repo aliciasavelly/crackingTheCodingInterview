@@ -34,6 +34,16 @@ class PlatesStack {
     return result;
   }
 
+  popAt(index) {
+    let result = this.stack[index].pop();
+    if (this.stack[index].length == 0 && this.lastPos > 0) {
+      this.stack.splice(index, 1);
+      this.lastPos--;
+    }
+
+    return result;
+  }
+
   push(value) {
     if (this.stack[this.lastPos].length == this.cap) {
       this.stack.push(new Stack());
