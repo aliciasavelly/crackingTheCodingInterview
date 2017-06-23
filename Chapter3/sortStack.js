@@ -15,9 +15,9 @@ function SortStack(stack) {
   let stack2 = new Stack();
   let count = 0;
 
-  while (stack.length > 0) {
+  while (!stack.isEmpty()) {
     current = stack.pop();
-    console.log(current);
+
     if (topRight < current) {
       stack2.push(current);
     } else {
@@ -32,10 +32,11 @@ function SortStack(stack) {
       }
       count = 0;
     }
+
     topRight = stack2.peek();
   }
 
-  while (stack2.length > 0) {
+  while (!stack2.isEmpty()) {
     stack.push(stack2.pop());
   }
 
@@ -49,6 +50,7 @@ stack.push(99);
 stack.push(1);
 stack.push(8);
 stack.push(4);
+stack.push(99);
 stack.push(2);
 
 console.log(SortStack(stack));

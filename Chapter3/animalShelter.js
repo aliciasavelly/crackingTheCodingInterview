@@ -13,6 +13,6 @@ LinkedList data structure.
 
 class AnimalShelter {
   constructor() {
-    
+
   }
 }
