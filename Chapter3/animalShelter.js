@@ -1,3 +1,5 @@
+const LinkedList = require('../Chapter2/linedList.js');
+
 /*
 
 Animal Shelter: An animal shelter, which holds only dogs and cats, operates on
@@ -13,6 +15,24 @@ LinkedList data structure.
 
 class AnimalShelter {
   constructor() {
+    let firstDog;
+    let firstCat;
+    let list = new LinkedList();
+  }
+
+  enqueue(value) {
+
+  }
+
+  dequeueAny() {
+
+  }
+
+  dequeueDog() {
+
+  }
+
+  dequeueCat() {
 
   }
 }
