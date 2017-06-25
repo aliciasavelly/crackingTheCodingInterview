@@ -1,4 +1,4 @@
-const LinkedList = require('../Chapter2/linkedList.js');
+const SinglyLinkedList = require('../Chapter2/singlyLinkedList.js');
 
 /*
 
@@ -17,34 +17,94 @@ class AnimalShelter {
   constructor() {
     this.firstDog;
     this.firstCat;
-    this.dogList = new LinkedList();
-    this.catList = new LinkedList();
+    this.dogList = new SinglyLinkedList();
+    this.catList = new SinglyLinkedList();
     this.pos = 0;
   }
 
   enqueue(value) {
     if (value == "dog") {
-      this.dogList.append(pos);
+      this.dogList.append(this.pos);
     } else {
-      this.catList.append(pos);
+      this.catList.append(this.pos);
     }
 
-    pos++;
+    this.pos++;
   }
 
   dequeueAny() {
-    if (this.dogList.head.value < this.catList.head.value) {
-      this.dogList.head = this.dogList.head.next;
-    } else {
-      this.catList.head = this.catList.head.next;
+    if (this.dogList.length > 0 && this.catList.length > 0 && this.dogList.head.value < this.catList.head.value) {
+      this.rmDog();
+    } else if (this.dogList.length > 0 && this.catList.length > 0) {
+      this.rmCat();
+    } else if (this.dogList.length > 0) {
+      this.rmDog();
+    } else if (this.catList.length > 0) {
+      this.rmCat();
     }
   }
 
   dequeueDog() {
-    this.dogList.head = this.dogList.head.next;
+    if (this.dogList.length > 0) {
+      this.rmDog();
+    }
   }
 
   dequeueCat() {
+    if (this.catList.length > 0) {
+      this.rmCat();
+    }
+  }
+
+  rmCat() {
     this.catList.head = this.catList.head.next;
+    this.catList.length--;
+  }
+
+  rmDog() {
+    this.dogList.head = this.dogList.head.next;
+    this.dogList.length--;
+  }
+
+  peek() {
+    if (this.dogList.length > 0 && this.catList.length > 0) {
+      if (this.dogList.head.value < this.catList.head.value) {
+        return "Next is a dog!";
+      } else {
+        return "Next is a cat!";
+      }
+    } else if (this.dogList.length > 0) {
+      return "Next is a dog!";
+    }
+    return "Next is a cat!";
   }
 }
+
+a = new AnimalShelter();
+a.enqueue("dog");
+a.enqueue("cat");
+a.enqueue("dog");
+a.enqueue("dog");
+a.enqueue("cat");
+a.enqueue("cat");
+a.enqueue("cat");
+a.enqueue("dog");
+a.enqueue("dog");
+console.log(a.peek() === "Next is a dog!");
+a.dequeueAny();
+console.log(a.peek() === "Next is a cat!");
+a.dequeueDog();
+console.log(a.peek() === "Next is a cat!");
+a.dequeueCat();
+console.log(a.peek() === "Next is a dog!");
+a.dequeueAny();
+console.log(a.peek() === "Next is a cat!");
+a.dequeueDog();
+a.dequeueDog();
+console.log(a.peek() === "Next is a cat!");
+a.dequeueDog();
+console.log(a.peek() === "Next is a cat!");
+a.dequeueAny();
+console.log(a.peek() === "Next is a cat!");
+a.dequeueCat();
+console.log(a.peek() === "Next is a cat!");

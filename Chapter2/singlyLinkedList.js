@@ -7,7 +7,7 @@ class SinglyLinkedList {
   }
 
   first() {
-    return this.head.next;
+    return this.head.value;
   }
 
   empty() {
