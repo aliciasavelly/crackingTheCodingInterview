@@ -1,4 +1,4 @@
-const LinkedList = require('../Chapter2/linedList.js');
+const LinkedList = require('../Chapter2/linkedList.js');
 
 /*
 
@@ -15,9 +15,9 @@ LinkedList data structure.
 
 class AnimalShelter {
   constructor() {
-    let firstDog;
-    let firstCat;
-    let list = new LinkedList();
+    this.firstDog;
+    this.firstCat;
+    this.list = new LinkedList();
   }
 
   enqueue(value) {
