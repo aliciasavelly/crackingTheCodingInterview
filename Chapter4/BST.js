@@ -1,8 +1,8 @@
-const BSTNode = require('BSTNode.js');
+const BSTNode = require('./BSTNode.js');
 
 class BST {
   constructor(value) {
-    this.root = new BSTNode(value);
+    this.root = value;
   }
 
   find(el, root = this.root) {
@@ -11,14 +11,14 @@ class BST {
     }
 
     if (el <= root.value) {
-      if (root.left_child) {
-        find(el, root.left_child);
+      if (root.left) {
+        this.find(el, root.left);
       } else {
         return false;
       }
     } else if (el > root.value) {
-      if (root.right_child) {
-        find(el, root.right_child);
+      if (root.right) {
+        this.find(el, root.right);
       } else {
         return false;
       }
@@ -29,26 +29,35 @@ class BST {
     let node = new BSTNode(value);
 
     if (!root.value) {
+      console.log("32");
       root.value = node.value;
     } else if (value <= root.value) {
-      if (root.left_child) {
-        let left_tree = new BST(root.left_child);
+      console.log("35");
+      if (root.left) {
+        console.log("37");
+        let left_tree = new BST(root.left);
         left_tree.insert(value);
+        console.log(left_tree);
       } else {
-        root.left_child = node;
+        console.log("41");
+        root.left = node;
       }
     } else if (value > root.value) {
-      if (root.right_child) {
-        let right_tree = new BST(root.right_child);
+      console.log("45");
+      if (root.right) {
+        console.log("47");
+        let right_tree = new BST(root.right);
         right_tree.insert(value);
       } else {
-        root.right_child = node;
+        console.log("51");
+        root.right = node;
       }
     }
   }
 }
 
-let tree = new BST(10);
+let val = new BSTNode(10);
+let tree = new BST(val);
 tree.insert(3);
 tree.insert(7);
 tree.insert(8);
