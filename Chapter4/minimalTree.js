@@ -18,7 +18,8 @@ function minimalTree(array) {
 }
 
 function addToTree(arr, root) {
-  if (arr.length < 3) {
+  // console.log(arr);
+  if (arr.length == 2) {
     if (arr[0] <= root.value) {
       root.left = new BSTNode(arr[1]);
       root.left.left = new BSTNode(arr[0]);
@@ -26,7 +27,13 @@ function addToTree(arr, root) {
       root.right = new BSTNode(arr[0]);
       root.right.right = new BSTNode(arr[1]);
     }
-  } else if (arr.length = 3) {
+  } else if (arr.length == 1) {
+    if (arr[0] <= root.value) {
+      root.left = new BSTNode(arr[0]);
+    } else {
+      root.right = new BSTNode(arr[0]);
+    }
+  } else if (arr.length == 3) {
     if (arr[0] < root.value) {
       let newNode = new BSTNode(arr[1]);
       root.left = newNode;
@@ -39,17 +46,17 @@ function addToTree(arr, root) {
       newNode.right = new BSTNode(arr[2]);
     }
   } else {
-    let midIdx = Math.floor(arr.length);
+    let midIdx = Math.floor(arr.length / 2);
     let newRoot = arr[midIdx];
     if (newRoot < root.value) {
       root.left = new BSTNode(newRoot);
-      addToTree(arr.slice(0, midIdx), root.left);
-      addToTree(arr.slice(midIdx + 1, arr.length), root.left);
+      resultRoot = root.left;
     } else {
       root.right = new BSTNode(newRoot);
-      addToTree(arr.slice(0, midIdx), root.right);
-      addToTree(arr.slice(midIdx + 1, arr.length), root.right);
+      resultRoot = root.right;
     }
+    addToTree(arr.slice(0, midIdx), resultRoot);
+    addToTree(arr.slice(midIdx + 1, arr.length), resultRoot);
   }
 }
 
@@ -69,3 +76,4 @@ function addToTree(arr, root) {
 // tree.insert(16);
 
 let tree = minimalTree([1, 2, 3, 4, 5, 6, 7]);
+let tree2 = minimalTree([1, 2, 3, 4, 5, 6, 7, 8]);
