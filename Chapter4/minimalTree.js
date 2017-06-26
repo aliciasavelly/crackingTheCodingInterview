@@ -37,43 +37,29 @@ function addToTree(arr, root) {
     if (arr[0] < root.value) {
       let newNode = new BSTNode(arr[1]);
       root.left = newNode;
-      newNode.left = new BSTNode(arr[0]);
-      newNode.right = new BSTNode(arr[2]);
     } else {
       let newNode = new BSTNode(arr[1]);
       root.right = newNode;
-      newNode.left = new BSTNode(arr[0]);
-      newNode.right = new BSTNode(arr[2]);
     }
+    newNode.left = new BSTNode(arr[0]);
+    newNode.right = new BSTNode(arr[2]);
   } else {
+
     let midIdx = Math.floor(arr.length / 2);
-    let newRoot = arr[midIdx];
+    let newRoot = new BSTNode(arr[midIdx]);
+
     if (newRoot < root.value) {
-      root.left = new BSTNode(newRoot);
-      resultRoot = root.left;
+      root.left = newRoot;
+      let resultRoot = root.left;
     } else {
-      root.right = new BSTNode(newRoot);
-      resultRoot = root.right;
+      root.right = newRoot;
+      let resultRoot = root.right;
     }
+
     addToTree(arr.slice(0, midIdx), resultRoot);
     addToTree(arr.slice(midIdx + 1, arr.length), resultRoot);
   }
 }
-
-// let val = new BSTNode(1);
-// let tree = new BST(val);
-// tree.insert(3);
-// tree.insert(7);
-// tree.insert(8);
-// tree.insert(2);
-// tree.insert(1);
-// tree.insert(4);
-// tree.insert(15);
-// tree.insert(17);
-// tree.insert(20);
-// tree.insert(23);
-// tree.insert(11);
-// tree.insert(16);
 
 let tree = minimalTree([1, 2, 3, 4, 5, 6, 7]);
 let tree2 = minimalTree([1, 2, 3, 4, 5, 6, 7, 8]);
