@@ -9,14 +9,14 @@ node has a link to its parent.
 
 */
 
-function successor(node) {
-  let result = null;
+function successor(node) {ååå
   if (node.right && !node.right.left) {
     return node.right;
   }
 
   if (node.right) {
     let current = node.right.left;
+
     while (true) {
       if (!current.left) {
         return current;
@@ -25,12 +25,15 @@ function successor(node) {
     }
   } else {
     let current = node.parent;
+
     if (current.value > node.value) {
       return current;
     }
+
     while (!(current.parent.value > current.value)) {
       current = current.parent;
     }
+
     return current.parent;
   }
 
