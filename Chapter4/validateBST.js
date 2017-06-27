@@ -10,26 +10,21 @@ search tree.
 
 function validateBST(treeRoot) {
   let root = treeRoot;
-  console.log(root.left);
-  console.log(root.right);
-  // console.log(root);
+
   if (root.left != null && root.left.value > root.value) {
-    console.log(15);
     return false;
   }
   if (root.right != null && root.right.value < root.value) {
-    console.log(19);
     return false;
   }
+  
   if (root.left && !validateBST(root.left)) {
-    console.log(22);
     return false;
   }
   if (root.right && !validateBST(root.right)) {
-    console.log(26);
     return false;
   }
-  console.log(29);
+
   return true;
 }
 
