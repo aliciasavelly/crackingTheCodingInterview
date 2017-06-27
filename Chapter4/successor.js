@@ -10,9 +10,22 @@ node has a link to its parent.
 */
 
 function successor(node) {
+  var result = null;
   if (node.right && !node.right.left) {
     return node.right;
   }
+
+  var current = node.right.left;
+  if (node.right) {
+    while (true) {
+      if (!current.left) {
+        return current;
+      }
+      current = current.left;
+    }
+  }
+
+  return result;
 }
 
 let val = new BSTNode(10);
@@ -39,4 +52,4 @@ tree.insert(18);
 tree.insert(17);
 
 console.log(successor(tree.root.right));
-console.log(successor(tree.root.right.left));
+// console.log(successor(tree.root.right.left));
