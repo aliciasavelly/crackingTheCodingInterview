@@ -18,7 +18,6 @@ function minimalTree(array) {
 }
 
 function addToTree(arr, root) {
-  // console.log(arr);
   if (arr.length == 2) {
     if (arr[0] <= root.value) {
       root.left = new BSTNode(arr[1]);
