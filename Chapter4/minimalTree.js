@@ -57,3 +57,19 @@ function addToTree(arr, root) {
 
 let tree = minimalTree([1, 2, 3, 4, 5, 6, 7]);
 let tree2 = minimalTree([1, 2, 3, 4, 5, 6, 7, 8]);
+let tree3 = minimalTree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+// console.log(tree3.root.value == 8);
+// console.log(tree3.root.left.value == 4);
+// console.log(tree3.root.left.left.value == 2);
+// console.log(tree3.root.left.right.value == 6);
+// console.log(tree3.root.left.right.left.value == 5);
+// console.log(tree3.root.left.right.right.value == 7);
+// console.log(tree3.root.left.left.right.value == 3);
+// console.log(tree3.root.left.left.left.value == 1);
+// console.log(tree3.root.right.value == 12);
+// console.log(tree3.root.right.left.value == 10);
+// console.log(tree3.root.right.right.value == 14);
+// console.log(tree3.root.right.right.left.value == 13);
+// console.log(tree3.root.right.right.right.value == 15);
+// console.log(tree3.root.right.left.left.value == 9);
+// console.log(tree3.root.right.left.right.value == 11);
