@@ -10,19 +10,28 @@ node has a link to its parent.
 */
 
 function successor(node) {
-  var result = null;
+  let result = null;
   if (node.right && !node.right.left) {
     return node.right;
   }
 
-  var current = node.right.left;
   if (node.right) {
+    let current = node.right.left;
     while (true) {
       if (!current.left) {
         return current;
       }
       current = current.left;
     }
+  } else {
+    let current = node.parent;
+    if (current.value > node.value) {
+      return current;
+    }
+    while (!(current.parent.value > current.value)) {
+      current = current.parent;
+    }
+    return current.parent;
   }
 
   return result;
@@ -53,3 +62,5 @@ tree.insert(17);
 
 console.log(successor(tree.root.right).value == 17);
 console.log(successor(tree.root.right.left).value == 14);
+console.log(successor(tree.root.left.right.left).value == 8);
+console.log(successor(tree.root.left.left.right.right).value == 5);
