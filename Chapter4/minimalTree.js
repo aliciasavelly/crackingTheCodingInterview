@@ -26,22 +26,20 @@ function addToTree(arr, root) {
       root.right = new BSTNode(arr[0]);
       root.right.right = new BSTNode(arr[1]);
     }
-  } else if (arr.length == 1) {
+
+  } else if (arr.length == 1 || arr.length == 3) {
+    let newNode = (arr.length == 1 ? new BSTNode(arr[0]) : new BSTNode(arr[1]));
+
     if (arr[0] <= root.value) {
-      root.left = new BSTNode(arr[0]);
-    } else {
-      root.right = new BSTNode(arr[0]);
-    }
-  } else if (arr.length == 3) {
-    if (arr[0] < root.value) {
-      let newNode = new BSTNode(arr[1]);
       root.left = newNode;
     } else {
-      let newNode = new BSTNode(arr[1]);
       root.right = newNode;
     }
-    newNode.left = new BSTNode(arr[0]);
-    newNode.right = new BSTNode(arr[2]);
+
+    if (arr.length == 3) {
+      newNode.left = new BSTNode(arr[0]);
+      newNode.right = new BSTNode(arr[2]);
+    }
   } else {
 
     let midIdx = Math.floor(arr.length / 2);
