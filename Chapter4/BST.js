@@ -38,6 +38,7 @@ class BST {
         left_tree.insert(value);
       } else {
         root.left = node;
+        root.left.parent = root;
       }
 
     } else if (value > root.value) {
@@ -47,6 +48,7 @@ class BST {
         right_tree.insert(value);
       } else {
         root.right = node;
+        root.right.parent = root;
       }
     }
   }

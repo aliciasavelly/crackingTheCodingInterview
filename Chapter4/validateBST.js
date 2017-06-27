@@ -17,7 +17,7 @@ function validateBST(treeRoot) {
   if (root.right != null && root.right.value < root.value) {
     return false;
   }
-  
+
   if (root.left && !validateBST(root.left)) {
     return false;
   }

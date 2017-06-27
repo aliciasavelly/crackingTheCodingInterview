@@ -51,5 +51,5 @@ tree.insert(15);
 tree.insert(18);
 tree.insert(17);
 
-console.log(successor(tree.root.right));
-// console.log(successor(tree.root.right.left));
+console.log(successor(tree.root.right).value == 17);
+console.log(successor(tree.root.right.left).value == 14);
