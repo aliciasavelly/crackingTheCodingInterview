@@ -11,8 +11,9 @@ valid build order, return an error.
 class Node {
   constructor(val) {
     this.value;
-    this.in = [];
+    this.in1 = [];
     this.out = [];
+    this.in = 0;
   }
 }
 
@@ -28,7 +29,9 @@ class Graph {
 
   addDependencies() {
     for (var i = 0; i < this.dependencies.length; i++) {
-
+      this.nodes[this.dependencies[i][0]].out.push(this.dependencies[i][1]);
+      this.nodes[this.dependencies[i][1]].in1.push(this.dependencies[i][0]);
+      this.nodes[this.dependencies[i][1]].in += 1;
     }
   }
 
@@ -65,4 +68,6 @@ function buildOrder(projects, dependencies) {
   }
 }
 
-console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]));
+// console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]));
+let graph = new Graph(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]);
+console.log(graph);
