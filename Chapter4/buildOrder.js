@@ -48,12 +48,9 @@ function buildOrder(projects, dependencies) {
 
   while (result.length < len) {
     invalid = true;
-    // console.log(51);
 
     for (let i = 0; i < projects.length; i++) {
-      // console.log(54);
       if (graph.nodes[projects[i]].in == 0) {
-        // console.log(55);
         result.push(projects[i]);
         let curNode = graph.nodes[projects[i]];
         for (let j = 0; j < curNode.out.length; j++) {
@@ -62,7 +59,7 @@ function buildOrder(projects, dependencies) {
 
         projects = projects.slice(0, i).concat(projects.slice(i + 1, projects.length));
         invalid = false;
-        break;
+        i--;
       }
     }
 
@@ -75,4 +72,4 @@ function buildOrder(projects, dependencies) {
 }
 
 console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]));
-console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"], ["d", "a"]]));
+// console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"], ["d", "a"]]));
