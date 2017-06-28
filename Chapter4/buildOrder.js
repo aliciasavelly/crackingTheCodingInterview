@@ -45,6 +45,7 @@ class Graph {
 function buildOrder(projects, dependencies) {
   let graph = new Graph(projects, dependencies);
   let result = [];
+  let len = projects.length;
 
   // for (let key in graph.nodes) {
   //   for (let i = 0; i < graph.nodes[key].out.length; i++) {
@@ -54,15 +55,22 @@ function buildOrder(projects, dependencies) {
   //   }
   // }
 
-  while (result.length < projects.length) {
+  while (result.length < len) {
+    console.log();
     let len = result.length;
+    // console.log(projects);
     for (let i = 0; i < projects.length; i++) {
-      if (graph.nodes[projects[i]].in == 0 && !result.includes(projects[i])) {
+      if (!result.includes(projects[i]) && graph.nodes[projects[i]].in == 0) {
         result.push(projects[i]);
         let curNode = graph.nodes[projects[i]];
         for (let j = 0; j < curNode.out.length; j++) {
           graph.nodes[curNode.out[j]].in -= 1;
         }
+        // projects.splice(i, 1);
+        // console.log(projects[i]);
+        // console.log(projects);
+        // console.log("----");
+        projects = projects.slice(0, i).concat(projects.slice(i + 1, projects.length));
       }
     }
     if (result.length == len) {
@@ -76,4 +84,4 @@ function buildOrder(projects, dependencies) {
 // let graph = new Graph(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]);
 // console.log(graph);
 console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]));
-console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"], ["d", "a"]]));
+// console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"], ["d", "a"]]));
