@@ -74,3 +74,4 @@ function buildOrder(projects, dependencies) {
 
 console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]));
 console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"], ["d", "a"]]));
+console.log(buildOrder(["a", "b", "c", "d", "e", "f", "g"], [["f", "c"], ["f", "b"], ["f", "a"], ["c", "a"], ["b", "a"], ["b", "e"], ["a", "e"], ["d", "g"]]));
