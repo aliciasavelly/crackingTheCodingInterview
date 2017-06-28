@@ -46,15 +46,16 @@ function buildOrder(projects, dependencies) {
   let graph = new Graph(projects, dependencies);
   let result = [];
 
-  for (let key in graph.nodes) {
-    for (let i = 0; i < graph.nodes[key].out.length; i++) {
-      if (graph.nodes[graph.nodes[key].out[i]].out.includes(key)) {
-        return false;
-      }
-    }
-  }
+  // for (let key in graph.nodes) {
+  //   for (let i = 0; i < graph.nodes[key].out.length; i++) {
+  //     if (graph.nodes[graph.nodes[key].out[i]].out.includes(key)) {
+  //       return false;
+  //     }
+  //   }
+  // }
 
   while (result.length < projects.length) {
+    let len = result.length;
     for (let i = 0; i < projects.length; i++) {
       if (graph.nodes[projects[i]].in == 0 && !result.includes(projects[i])) {
         result.push(projects[i]);
@@ -63,6 +64,9 @@ function buildOrder(projects, dependencies) {
           graph.nodes[curNode.out[j]].in -= 1;
         }
       }
+    }
+    if (result.length == len) {
+      return -1;
     }
   }
 
