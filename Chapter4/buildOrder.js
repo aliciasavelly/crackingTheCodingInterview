@@ -43,31 +43,33 @@ class Graph {
 }
 
 function buildOrder(projects, dependencies) {
-  let projectHash = {};
+  let graph = new Graph(projects, dependencies);
   let result = [];
 
-  for (let i = 0; i < projects.length; i++) {
-    projectHash[projects[i]] = [];
-  }
-
-  // console.log(projectHash);
-  for (let i = 0; i < dependencies.length; i++) {
-    projectHash[dependencies[i][0]].push(dependencies[i][1]);
-  }
-
-  // console.log(projectHash);
-  let notDone = true;
-  while (notDone) {
-    notDone = false;
-
-    for (let i = 0; i < projects.length; i++) {
-      if (projectHash[projects[i]].length == 0) {
-
+  for (let key in graph.nodes) {
+    for (let i = 0; i < graph.nodes[key].out.length; i++) {
+      if (graph.nodes[graph.nodes[key].out[i]].out.includes(key)) {
+        return false;
       }
     }
   }
+
+  while (result.length < projects.length) {
+    for (let i = 0; i < projects.length; i++) {
+      if (graph.nodes[projects[i]].in == 0 && !result.includes(projects[i])) {
+        result.push(projects[i]);
+        let curNode = graph.nodes[projects[i]];
+        for (let j = 0; j < curNode.out.length; j++) {
+          graph.nodes[curNode.out[j]].in -= 1;
+        }
+      }
+    }
+  }
+
+  return result;
 }
 
-// console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]));
-let graph = new Graph(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]);
-console.log(graph);
+// let graph = new Graph(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]);
+// console.log(graph);
+console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]]));
+console.log(buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"], ["d", "a"]]));
