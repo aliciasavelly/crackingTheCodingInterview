@@ -40,9 +40,6 @@ class Graph
   end
 end
 
-# graph = Graph.new(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]])
-# p graph
-
 def buildOrder(projects, dependencies)
   graph = Graph.new(projects, dependencies)
   result = []
@@ -72,6 +69,8 @@ def buildOrder(projects, dependencies)
   result
 end
 
+# graph = Graph.new(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]])
+# p graph
 p buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"]])
 p buildOrder(["a", "b", "c", "d", "e", "f"], [["a", "d"], ["f", "b"], ["b", "d"], ["f", "a"], ["d", "c"], ["d", "a"]])
 p buildOrder(["a", "b", "c", "d", "e", "f", "g"], [["f", "c"], ["f", "b"], ["f", "a"], ["c", "a"], ["b", "a"], ["b", "e"], ["a", "e"], ["d", "g"]])
