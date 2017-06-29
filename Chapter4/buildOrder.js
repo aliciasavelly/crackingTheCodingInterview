@@ -9,8 +9,8 @@ valid build order, return an error.
 */
 
 class Node {
-  constructor(val) {
-    this.value;
+  constructor(value) {
+    this.value = value;
     this.out = [];
     this.in = 0;
   }
